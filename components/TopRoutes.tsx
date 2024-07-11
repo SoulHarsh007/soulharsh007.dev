@@ -10,14 +10,14 @@ import {
 
 const data = [
   {
-    region: 'GLOBAL (Primary: US)',
-    route: 'us.soulharsh007.dev',
-    service: 'CDN: CachyOS Mirror',
-  },
-  {
     region: 'GLOBAL (Primary: SEA and US)',
     route: 'sea-usw-lb.soulharsh007.dev',
     service: 'CDN: RebornOS Mirror',
+  },
+  {
+    region: 'EU-CENTRAL',
+    route: 'at.soulharsh007.dev',
+    service: 'Repository Mirror: CachyOS',
   },
   {
     region: 'GLOBAL',
