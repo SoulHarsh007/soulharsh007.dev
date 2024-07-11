@@ -32,5 +32,6 @@
     "lint": "next lint",
     "start": "next start"
   },
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "packageManager": "bun@1.1.8"
 }
