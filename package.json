@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@headlessui/react": "2.1.2",
+    "@headlessui/react": "2.2.0",
     "@headlessui/tailwindcss": "0.2.1",
     "@heroicons/react": "2.1.5",
     "@tremor/react": "3.17.4",
