@@ -1,4 +1,4 @@
-import {Card} from '@tremor/react';
+import {Card} from '@/components/Card';
 import Link from 'next/link';
 
 export default function Footer() {

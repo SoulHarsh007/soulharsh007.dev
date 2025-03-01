@@ -7,10 +7,10 @@ export default function Metric({
     <div className="flex space-x-2.5">
       <div className={`flex w-1 flex-col ${color} rounded`} />
       <div className="space-y-1">
-        <p className="text-tremor-default text-tremor-content dark:text-dark-tremor-content">
+        <p className="dark:text-gray-100 text-gray-800 font-light">
           {title}
         </p>
-        <p className="text-tremor-metric text-tremor-content-strong dark:text-dark-tremor-content-strong font-semibold">
+        <p className="text-gray-900 dark:text-white font-semibold text-3xl">
           {value}
         </p>
       </div>

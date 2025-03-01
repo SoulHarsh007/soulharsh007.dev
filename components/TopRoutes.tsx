@@ -1,12 +1,13 @@
+import {Card} from '@/components/Card';
 import {
-  Card,
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeaderCell,
+  TableRoot,
   TableRow,
-} from '@tremor/react';
+} from '@/components/Table';
 
 const data = [
   {
@@ -44,27 +45,29 @@ const data = [
 export function TopRoutes() {
   return (
     <Card>
-      <h3 className="text-tremor-content-strong dark:text-dark-tremor-content-strong font-semibold text-center">
-        High Traffic Routes
-      </h3>
-      <Table className="mt-5">
-        <TableHead>
-          <TableRow>
-            <TableHeaderCell>Route</TableHeaderCell>
-            <TableHeaderCell>Region</TableHeaderCell>
-            <TableHeaderCell>Service</TableHeaderCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {data.map(item => (
-            <TableRow key={item.route}>
-              <TableCell>{item.route}</TableCell>
-              <TableCell>{item.region}</TableCell>
-              <TableCell>{item.service}</TableCell>
+      <TableRoot>
+        <h3 className="text-gray-900 dark:text-white font-semibold text-center">
+          High Traffic Routes
+        </h3>
+        <Table className="mt-5">
+          <TableHead>
+            <TableRow>
+              <TableHeaderCell>Route</TableHeaderCell>
+              <TableHeaderCell>Region</TableHeaderCell>
+              <TableHeaderCell>Service</TableHeaderCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHead>
+          <TableBody>
+            {data.map(item => (
+              <TableRow key={item.route}>
+                <TableCell>{item.route}</TableCell>
+                <TableCell>{item.region}</TableCell>
+                <TableCell>{item.service}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableRoot>
     </Card>
   );
 }

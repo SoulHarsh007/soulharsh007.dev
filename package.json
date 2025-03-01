@@ -1,28 +1,35 @@
 {
   "dependencies": {
-    "@headlessui/react": "2.1.2",
-    "@headlessui/tailwindcss": "0.2.1",
-    "@heroicons/react": "2.1.5",
-    "@tremor/react": "3.17.4",
-    "@vercel/analytics": "1.3.1",
-    "next": "14.2.5",
+    "@eslint/eslintrc": "3.3.0",
+    "@heroicons/react": "2.2.0",
+    "@radix-ui/react-slot": "1.1.2",
+    "@remixicon/react": "4.6.0",
+    "@vercel/analytics": "1.5.0",
+    "clsx": "2.1.1",
+    "next": "15.2.0",
     "pretty-bytes": "6.1.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-is": "^19.0.0",
+    "recharts": "3.0.0-alpha.8",
+    "tailwind-merge": "3.0.2",
+    "tailwind-variants": "0.3.1"
   },
   "devDependencies": {
-    "@types/node": "^22.4.0",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
+    "@tailwindcss/forms": "0.5.10",
+    "@tailwindcss/postcss": "4.0.9",
+    "@types/node": "^22.13.8",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
     "autoprefixer": "10.4.20",
-    "eslint": "^9.9.0",
-    "eslint-config-next": "^14.2.5",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-perfectionist": "^3.2.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "postcss": "8.4.41",
-    "tailwindcss": "3.4.10",
-    "typescript": "5.5.4"
+    "eslint": "^9.21.0",
+    "eslint-config-next": "^15.2.0",
+    "eslint-config-prettier": "^10.0.2",
+    "eslint-plugin-perfectionist": "^4.9.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "postcss": "8.5.3",
+    "tailwindcss": "4.0.9",
+    "typescript": "5.8.2"
   },
   "name": "soulharsh007.dev",
   "private": true,
@@ -33,5 +40,5 @@
     "start": "next start"
   },
   "version": "0.1.0",
-  "packageManager": "bun@1.1.24"
+  "packageManager": "bun@1.2.4"
 }
