@@ -1,0 +1,17 @@
+secrets:
+  SITE_CF_API_TOKEN:
+    environment: SITE_CF_API_TOKEN
+  SITE_CF_ZONE_TAG:
+    environment: SITE_CF_ZONE_TAG
+
+services:
+  web:
+    build:
+      context: .
+      secrets:
+        - SITE_CF_API_TOKEN
+        - SITE_CF_ZONE_TAG
+    env_file: .env
+    ports:
+      - '3000:3000'
+    restart: always

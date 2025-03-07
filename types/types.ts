@@ -3,6 +3,11 @@ export enum IMetricsTimeRange {
   YEARLY = 366,
 }
 
+export type ComparableMetricsKeys<T extends TimePeriod> =
+  | `This ${T} (CF Cache)`
+  | `This ${T} (Total)`
+  | (T extends 'Month' ? `Last ${T} (CF Cache)` | `Last ${T} (Total)` : never);
+
 export interface ICloudflareMetricsResponse {
   data?: {
     viewer: {
@@ -35,8 +40,3 @@ export interface IHTTPRequests1DGroups {
 }
 
 export type TimePeriod = 'Month' | 'Year';
-
-type ComparableMetricsKeys<T extends TimePeriod> =
-  | `This ${T} (CF Cache)`
-  | `This ${T} (Total)`
-  | (T extends 'Month' ? `Last ${T} (CF Cache)` | `Last ${T} (Total)` : never);
