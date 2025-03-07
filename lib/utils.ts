@@ -20,10 +20,11 @@ import clsx, {type ClassValue} from 'clsx';
 import {twMerge} from 'tailwind-merge';
 
 export function requestsFormatter(requests: number) {
-  if (requests >= 1e6) {
+  if (requests >= 1e9) {
+    return (requests / 1e9).toFixed(1) + 'B';
+  } else if (requests >= 1e6) {
     return (requests / 1e6).toFixed(1) + 'M';
-  }
-  if (requests >= 1e3) {
+  } else if (requests >= 1e3) {
     return (requests / 1e3).toFixed(1) + 'K';
   }
   return requests.toString();
