@@ -5,7 +5,7 @@ export default function Metric({
 }: Readonly<{color?: string; title: string; value: string}>) {
   return (
     <div className="flex space-x-2.5">
-      <div className={`flex w-1 flex-col ${color} rounded`} />
+      <div className={`flex w-1 flex-col ${color} rounded-sm`} />
       <div className="space-y-1">
         <p className="dark:text-gray-100 text-gray-800 font-light">
           {title}

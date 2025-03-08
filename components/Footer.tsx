@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <Card className="flex flex-col justify-center rounded-lg h-[72px] shadow p-4 w-full dark:text-white text-gray-900">
+    <Card className="flex flex-col justify-center rounded-lg h-[72px] shadow-sm p-4 w-full dark:text-white text-gray-900">
       <div className="w-full mx-auto md:flex md:items-center md:justify-between">
         <div className="text-sm text-center">
           Built with 💖 by{' '}

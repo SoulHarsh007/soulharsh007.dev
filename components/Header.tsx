@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Header() {
   return (
-    <Card className="rounded-lg shadow p-3 w-full">
+    <Card className="rounded-lg shadow-sm p-3 w-full">
       <div className="text-sm text-center">
         <Link className="text-2xl font-mono flex items-center" href="/">
           <Image
