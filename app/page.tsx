@@ -55,7 +55,7 @@ export default async function Home() {
       <Header />
 
       <Card className="flex flex-col w-full h-full gap-y-4 p-1 md:p-4">
-        <Card className="flex items-center gap-x-4 p-4 text-sm text-black rounded-lg bg-gray-100 dark:text-white">
+        <Card className="flex items-center gap-x-4 p-4 text-sm text-black rounded-lg bg-gray-100 dark:text-white text-justify">
           <svg
             className="ml-3 size-8 shrink-0"
             viewBox="0 0 640 480"
@@ -69,7 +69,7 @@ export default async function Home() {
           <div>
             <span className="font-bold">Stand with Ukraine</span> - In this
             critical time, we stand in solidarity with the people of Ukraine.
-            Together, we can offer hope, support, and resilience. If {"you're"}
+            Together, we can offer hope, support, and resilience. If {"you're "}
             able to help, consider donating to those in need.{' '}
             <span className="font-bold">Slava Ukraini! </span>
             <Link
@@ -106,7 +106,7 @@ export default async function Home() {
         </div>
 
         <Card className="flex gap-x-4 items-center">
-          <RiDonutChartLine className="dark:text-white text-gray-900 size-12" />
+          <RiDonutChartLine className="dark:text-white text-gray-900 size-10 shrink-0" />
           <p className="dark:text-white text-gray-900 text-justify">
             Due to a Cloudflare analytics bug, the data for March 2, 2025, and
             March 3, 2025, was removed from the calculation as it returned
