@@ -1,11 +1,20 @@
 import type {Metadata} from 'next';
 
-import {Analytics} from '@vercel/analytics/next';
-import {Inter} from 'next/font/google';
+import {Geist, Geist_Mono} from 'next/font/google';
+
+import {ThemeProvider} from '@/components/theme-provider';
 
 import './globals.css';
 
-const inter = Inter({subsets: ['latin']});
+const geistSans = Geist({
+  subsets: ['latin'],
+  variable: '--font-geist-sans',
+});
+
+const geistMono = Geist_Mono({
+  subsets: ['latin'],
+  variable: '--font-geist-mono',
+});
 
 export const metadata: Metadata = {
   applicationName: 'SoulHarsh007: Domain Traffic Analysis',
@@ -43,10 +52,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        {children}
-        <Analytics />
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          disableTransitionOnChange
+          enableSystem
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -13,10 +13,14 @@ WORKDIR /temp/prod
 RUN bun install --frozen-lockfile --production
 
 FROM base AS prerelease
+RUN mkdir -p /usr/src/app/.next/cache/images && \
+    chown -R bun /usr/src/app/.next/cache/images
 WORKDIR /usr/src/app
 COPY --from=install /temp/dev/node_modules node_modules
 COPY . .
-RUN --mount=type=secret,id=SITE_CF_API_TOKEN,env=SITE_CF_API_TOKEN --mount=type=secret,id=SITE_CF_ZONE_TAG,env=SITE_CF_ZONE_TAG bun --bun run build
+RUN --mount=type=secret,id=SITE_CF_API_TOKEN,env=SITE_CF_API_TOKEN \ 
+  --mount=type=secret,id=SITE_CF_ZONE_TAG,env=SITE_CF_ZONE_TAG \
+  bun --bun run build
 
 FROM base AS release
 COPY --from=install /temp/prod/node_modules node_modules
