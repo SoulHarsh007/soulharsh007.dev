@@ -10,7 +10,10 @@ import {formatDate} from '@/lib/utils';
 export async function getCloudflareMetrics(request: CloudflareMetricsRequest) {
   const parsedRequest = CloudflareMetricsRequestSchema.safeParse(request);
   if (!parsedRequest.success) {
-    console.error('Error parsing Cloudflare metrics request:', parsedRequest.error);
+    console.error(
+      'Error parsing Cloudflare metrics request:',
+      parsedRequest.error
+    );
     return [];
   }
   const {endDate, range, startDate} = parsedRequest.data;

@@ -67,7 +67,11 @@ export function StatsAreaChart({
           tickLine={false}
           tickMargin={8}
         />
-        <YAxis className='w-8 md:w-12 lg:w-14' tickFormatter={formatter} type="number" />
+        <YAxis
+          className="w-8 md:w-12 lg:w-14"
+          tickFormatter={formatter}
+          type="number"
+        />
         <ChartTooltip
           content={<ChartTooltipContent valueFormatter={formatter} />}
         />

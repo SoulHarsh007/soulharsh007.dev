@@ -10,7 +10,7 @@ export function CFBugCard() {
       <div className="text-justify">
         Due to a Cloudflare analytics bug, the data for following dates was
         removed from the calculation as it returned values of 9.22 EB:
-        <ul className='list-disc pl-6'>
+        <ul className="list-disc pl-6">
           {prettyKnownCFBugDates.map(date => (
             <li className="font-bold" key={date}>
               {date}

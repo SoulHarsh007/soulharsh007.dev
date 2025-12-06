@@ -14,7 +14,7 @@ export function Header() {
               className="inline-block dark:invert"
               height={48}
               priority
-              quality={100}
+              quality={75}
               src="/logo.svg"
               width={48}
             />
