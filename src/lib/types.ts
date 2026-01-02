@@ -26,6 +26,15 @@ export type CloudflareMetricsHttpRequestsSum = z.infer<
   typeof CloudflareMetricsHttpRequestsSumSchema
 >;
 
+export const CloudflareMetricsHttpRequestsSumWithDateSchema =
+  CloudflareMetricsHttpRequestsSumSchema.extend({
+    date: z.string(),
+  });
+
+export type CloudflareMetricsHttpRequestsSumWithDate = z.infer<
+  typeof CloudflareMetricsHttpRequestsSumWithDateSchema
+>;
+
 export const CloudflareMetricsHttpRequestsSchema = z.strictObject({
   dimensions: z.strictObject({
     date: z.string(),

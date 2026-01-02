@@ -12,6 +12,29 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+export function extractMonth(dateStr: string) {
+  const parts = dateStr.split('-');
+  if (parts.length !== 3) {
+    return '';
+  }
+  const month = Number.parseInt(parts[1], 10);
+  const monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+  return monthNames[month - 1] || '';
+}
+
 export function formatDate(date: Date) {
   return `${date.getFullYear()}-${(date.getMonth() + 1)
     .toString()
