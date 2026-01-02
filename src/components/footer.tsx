@@ -5,7 +5,7 @@ import {Card} from '@/components/ui/card';
 export function Footer() {
   return (
     <footer className="flex w-full">
-      <Card className="h-[72px] w-full p-4 justify-center">
+      <Card className="h-18 w-full p-4 justify-center">
         <div className="w-full md:flex md:items-center md:justify-between text-sm">
           <div className="text-center">
             Built with 💖 by{' '}
