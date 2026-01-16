@@ -50,12 +50,14 @@ export function prettyDateFormat(date: Date) {
 }
 
 export function requestsFormatter(requests: number) {
-  if (requests >= 1e9) {
-    return (requests / 1e9).toFixed(1) + 'B';
+  if (requests >= 1e12) {
+    return (requests / 1e12).toFixed(1) + ' T';
+  } else if (requests >= 1e9) {
+    return (requests / 1e9).toFixed(1) + ' B';
   } else if (requests >= 1e6) {
-    return (requests / 1e6).toFixed(1) + 'M';
+    return (requests / 1e6).toFixed(1) + ' M';
   } else if (requests >= 1e3) {
-    return (requests / 1e3).toFixed(1) + 'K';
+    return (requests / 1e3).toFixed(1) + ' K';
   }
   return requests.toString();
 }
