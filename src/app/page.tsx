@@ -1,3 +1,5 @@
+import {cacheLife} from 'next/cache';
+
 import {getCloudflareMetrics} from '@/app/actions';
 import {ChartContainer} from '@/components/chart-container';
 import {ExcludedDataCard} from '@/components/excluded-data-card';
@@ -15,6 +17,8 @@ import {
 import {extractMonth} from '@/lib/utils';
 
 export default async function Home() {
+  'use cache';
+  cacheLife('days');
   const startDate = new Date();
   startDate.setUTCDate(1);
   startDate.setUTCHours(0);

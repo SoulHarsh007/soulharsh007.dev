@@ -79,7 +79,7 @@ function ChartContainer({
   config: ChartConfig;
 }) {
   const uniqueId = React.useId();
-  const chartId = `chart-${id || uniqueId.replace(/:/g, '')}`;
+  const chartId = `chart-${id || uniqueId.replaceAll(':', '')}`;
 
   return (
     <ChartContext.Provider value={{config}}>
@@ -93,7 +93,9 @@ function ChartContainer({
         {...props}
       >
         <ChartStyle config={config} id={chartId} />
-        <RechartsPrimitive.ResponsiveContainer>
+        <RechartsPrimitive.ResponsiveContainer
+          initialDimension={{height: 200, width: 320}}
+        >
           {children}
         </RechartsPrimitive.ResponsiveContainer>
       </div>
@@ -161,7 +163,7 @@ function ChartTooltipContent({
   nameKey,
   payload,
   valueFormatter = (value: number) => value.toLocaleString(),
-}: Partial<CustomTooltipProps>) {
+}: Readonly<Partial<CustomTooltipProps>>) {
   const {config} = useChart();
 
   const tooltipLabel = React.useMemo(() => {
@@ -175,7 +177,7 @@ function ChartTooltipContent({
     const value = (() => {
       const v =
         !labelKey && typeof label === 'string'
-          ? (config[label as keyof typeof config]?.label ?? label)
+          ? (config[label]?.label ?? label)
           : itemConfig?.label;
 
       return typeof v === 'string' || typeof v === 'number' ? v : undefined;
@@ -213,11 +215,11 @@ function ChartTooltipContent({
   return (
     <div
       className={cn(
-        'border-border/50 bg-background grid min-w-[8rem] items-start gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs shadow-xl',
+        'border-border/50 bg-background grid min-w-32 items-start gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs shadow-xl',
         className
       )}
     >
-      {!nestLabel ? tooltipLabel : null}
+      {nestLabel ? null : tooltipLabel}
       <div className="grid gap-1.5">
         {payload.map((item, index) => {
           const key = `${nameKey || item.name || item.dataKey || 'value'}`;
@@ -378,9 +380,7 @@ function getPayloadConfigFromPayload(
     ] as string;
   }
 
-  return configLabelKey in config
-    ? config[configLabelKey]
-    : config[key as keyof typeof config];
+  return configLabelKey in config ? config[configLabelKey] : config[key];
 }
 
 export {

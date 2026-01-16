@@ -8,6 +8,9 @@ import {
 import {formatDate} from '@/lib/utils';
 
 export async function getCloudflareMetrics(request: CloudflareMetricsRequest) {
+  console.log(
+    `Fetching CF Stats for request: ${JSON.stringify(request, null, 2)} @ ${new Date().toUTCString()}`
+  );
   const parsedRequest = CloudflareMetricsRequestSchema.safeParse(request);
   if (!parsedRequest.success) {
     console.error(
@@ -32,9 +35,6 @@ export async function getCloudflareMetrics(request: CloudflareMetricsRequest) {
       Authorization: `Bearer ${process.env.SITE_CF_API_TOKEN}`,
     },
     method: 'POST',
-    next: {
-      revalidate: 21600,
-    },
   }).then(res => res.json());
   const parsed = CloudflareMetricsResponseSchema.safeParse(response);
   if (!parsed.success) {

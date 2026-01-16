@@ -58,7 +58,7 @@ export function StatsAreaChart({
   const dataKeys = chartData[0] ? Object.keys(chartData[0]) : [];
   const filteredKeys = chartKeys.filter(key => dataKeys.includes(key));
   return (
-    <ChartContainer className="max-h-[32rem] pb-0" config={chartConfig}>
+    <ChartContainer className="max-h-128 pb-0" config={chartConfig}>
       <AreaChart accessibilityLayer data={chartData} syncId={syncId}>
         <CartesianGrid vertical={false} />
         <XAxis
