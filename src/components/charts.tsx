@@ -1,6 +1,13 @@
 'use client';
 
-import {Area, AreaChart, CartesianGrid, XAxis, YAxis} from 'recharts';
+import {
+  Area,
+  AreaChart,
+  CartesianGrid,
+  TooltipValueType,
+  XAxis,
+  YAxis,
+} from 'recharts';
 
 import {
   ChartConfig,
@@ -127,6 +134,6 @@ function getFormatter(format?: StatsAreaChartFormat) {
     case 'REQUESTS':
       return requestsFormatter;
     default:
-      return (value: number) => value.toLocaleString();
+      return (value: TooltipValueType) => value.toLocaleString();
   }
 }

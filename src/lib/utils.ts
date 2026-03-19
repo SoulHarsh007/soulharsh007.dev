@@ -1,11 +1,15 @@
 import {type ClassValue, clsx} from 'clsx';
 import prettyBytes from 'pretty-bytes';
+import {TooltipValueType} from 'recharts';
 import {twMerge} from 'tailwind-merge';
 
-export function bytesFormatter(bytes: number) {
-  return prettyBytes(bytes, {
-    locale: true,
-  });
+export function bytesFormatter(bytes: TooltipValueType) {
+  if (typeof bytes === 'number') {
+    return prettyBytes(bytes, {
+      locale: true,
+    });
+  }
+  return '';
 }
 
 export function cn(...inputs: ClassValue[]) {
@@ -49,7 +53,10 @@ export function prettyDateFormat(date: Date) {
   });
 }
 
-export function requestsFormatter(requests: number) {
+export function requestsFormatter(requests: TooltipValueType) {
+  if (typeof requests !== 'number') {
+    return '';
+  }
   if (requests >= 1e12) {
     return (requests / 1e12).toFixed(1) + ' T';
   } else if (requests >= 1e9) {

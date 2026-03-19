@@ -57,7 +57,7 @@ export type CustomTooltipProps = TooltipContentProps<ValueType, NameType> & {
   ) => React.ReactNode;
   labelKey?: string;
   nameKey?: string;
-  valueFormatter?: (value: number) => string;
+  valueFormatter?: (value: ValueType) => string;
 };
 
 type ChartContextProps = {
