@@ -21,13 +21,13 @@ export type ChartConfig = {
   [k in string]: ChartConfigValue;
 };
 
-export type ChartConfigValue = {
-  icon?: React.ComponentType;
-  label?: React.ReactNode;
-} & (
+export type ChartConfigValue = (
   | {color?: never; theme: Record<keyof typeof THEMES, string>}
   | {color?: string; theme?: never}
-);
+) & {
+  icon?: React.ComponentType;
+  label?: React.ReactNode;
+};
 
 export type ChartLegendContentProps = {
   className?: string;
@@ -162,7 +162,7 @@ function ChartTooltipContent({
   labelKey,
   nameKey,
   payload,
-  valueFormatter = (value: number) => value.toLocaleString(),
+  valueFormatter = (value: ValueType) => value.toLocaleString(),
 }: Readonly<Partial<CustomTooltipProps>>) {
   const {config} = useChart();
 
@@ -232,7 +232,7 @@ function ChartTooltipContent({
                 '[&>svg]:text-muted-foreground flex w-full flex-wrap items-stretch gap-2 [&>svg]:h-2.5 [&>svg]:w-2.5',
                 indicator === 'dot' && 'items-center'
               )}
-              key={item.dataKey}
+              key={index}
             >
               {formatter && item?.value !== undefined && item.name ? (
                 formatter(item.value, item.name, item, index, item.payload)
