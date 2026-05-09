@@ -4,30 +4,30 @@
     "@radix-ui/react-slot": "^1.2.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.577.0",
-    "next": "16.2.3",
+    "lucide-react": "^1.14.0",
+    "next": "16.2.6",
     "next-themes": "0.4.6",
     "pretty-bytes": "7.1.0",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
-    "recharts": "3.8.0",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "recharts": "3.8.1",
     "tailwind-merge": "^3.5.0",
-    "zod": "4.3.6"
+    "zod": "4.4.3"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.2.2",
-    "@types/node": "^25.5.0",
+    "@tailwindcss/postcss": "^4.3.0",
+    "@types/node": "^25.6.2",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
-    "eslint": "^9.39.4",
-    "eslint-config-next": "16.2.0",
+    "eslint": "^10.3.0",
+    "eslint-config-next": "16.2.6",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-perfectionist": "5.7.0",
+    "eslint-plugin-perfectionist": "5.9.0",
     "eslint-plugin-prettier": "^5.5.5",
-    "prettier": "^3.8.1",
-    "tailwindcss": "^4.2.2",
+    "prettier": "^3.8.3",
+    "tailwindcss": "^4.3.0",
     "tw-animate-css": "^1.4.0",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.3"
   },
   "name": "soulharsh007.dev",
   "private": true,
@@ -37,5 +37,8 @@
     "lint": "eslint .",
     "start": "next start"
   },
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "trustedDependencies": [
+    "unrs-resolver"
+  ]
 }
