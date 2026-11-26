@@ -1,20 +1,21 @@
-import {cacheLife} from 'next/cache';
+import { cacheLife } from 'next/cache';
 
-import {getCloudflareMetrics} from '@/app/actions';
-import {ChartContainer} from '@/components/chart-container';
-import {ExcludedDataCard} from '@/components/excluded-data-card';
-import {Footer} from '@/components/footer';
-import {Header} from '@/components/header';
-import {UASupportCard} from '@/components/ua-support-card';
-import {Card} from '@/components/ui/card';
-import {ignoreDates} from '@/lib/ignored-dates';
+import { getCloudflareMetrics } from '@/app/actions';
+import { ChartContainer } from '@/components/chart-container';
+import { ExcludedDataCard } from '@/components/excluded-data-card';
+import { Footer } from '@/components/footer';
+import { Header } from '@/components/header';
+import { UASupportCard } from '@/components/ua-support-card';
+import { Card } from '@/components/ui/card';
+import { ignoreDates } from '@/lib/ignored-dates';
 import {
   CloudflareMetricsHttpRequestsSumWithDate,
   MetricPeriod,
   MetricsTimeRange,
   ProcessedCloudflareMetricsResponse,
 } from '@/lib/types';
-import {extractMonth} from '@/lib/utils';
+import { extractMonth } from '@/lib/utils';
+import { Suspense } from 'react';
 
 export default async function Home() {
   'use cache';
@@ -107,7 +108,7 @@ export default async function Home() {
       cfCache: acc.cfCache + curr.cachedBytes,
       total: acc.total + curr.bytes,
     }),
-    {cfCache: 0, total: 0}
+    { cfCache: 0, total: 0 }
   );
   const thisYearRequests: ProcessedCloudflareMetricsResponse[] =
     aggregatedThisYear.map(x => ({
@@ -121,7 +122,7 @@ export default async function Home() {
       cfCache: acc.cfCache + curr.cachedRequests,
       total: acc.total + curr.requests,
     }),
-    {cfCache: 0, total: 0}
+    { cfCache: 0, total: 0 }
   );
 
   const thisMonthBytes: ProcessedCloudflareMetricsResponse[] = thisMonth.map(
@@ -139,7 +140,7 @@ export default async function Home() {
       cfCache: acc.cfCache + curr.cachedBytes,
       total: acc.total + curr.bytes,
     }),
-    {cfCache: 0, total: 0}
+    { cfCache: 0, total: 0 }
   );
   const thisMonthRequests: ProcessedCloudflareMetricsResponse[] = thisMonth.map(
     (x, i) => ({
@@ -156,7 +157,7 @@ export default async function Home() {
       cfCache: acc.cfCache + curr.cachedRequests,
       total: acc.total + curr.requests,
     }),
-    {cfCache: 0, total: 0}
+    { cfCache: 0, total: 0 }
   );
 
   return (
@@ -166,23 +167,26 @@ export default async function Home() {
         <UASupportCard />
         {ignoreDates.length > 0 ? <ExcludedDataCard /> : null}
 
-        <ChartContainer
-          bytes={thisYearBytes}
-          header="Stats for Current Year"
-          requests={thisYearRequests}
-          syncId="yearly-chart"
-          totalBytes={thisYearBytesTotal}
-          totalRequests={thisYearRequestsTotal}
-        />
+        <Suspense fallback={null}>
+          <ChartContainer
+            bytes={thisYearBytes}
+            header="Stats for Current Year"
+            requests={thisYearRequests}
+            syncId="yearly-chart"
+            totalBytes={thisYearBytesTotal}
+            totalRequests={thisYearRequestsTotal}
+          />
 
-        <ChartContainer
-          bytes={thisMonthBytes}
-          header="Stats for Current Month"
-          requests={thisMonthRequests}
-          syncId="monthly-chart"
-          totalBytes={thisMonthBytesTotal}
-          totalRequests={thisMonthRequestsTotal}
-        />
+          <ChartContainer
+            bytes={thisMonthBytes}
+            header="Stats for Current Month"
+            requests={thisMonthRequests}
+            syncId="monthly-chart"
+            totalBytes={thisMonthBytesTotal}
+            totalRequests={thisMonthRequestsTotal}
+          />
+
+        </Suspense>
       </main>
       <Footer />
     </Card>
